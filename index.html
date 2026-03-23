@@ -7,24 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --blue: #1565C0;
-    --blue-dark: #0D47A1;
-    --blue-mid: #1976D2;
-    --blue-light: #E3F2FD;
-    --blue-accent: #42A5F5;
-    --white: #ffffff;
-    --gray: #607D8B;
-    --gray-light: #ECEFF1;
-    --gray-mid: #90A4AE;
-    --gray-dark: #37474F;
-    --text-main: #1A237E;
+    --cream:      #FFFDF6;
+    --cream-mid:  #FAF6E9;
+    --lime:       #DDEB9D;
+    --green:      #A0C878;
+    --green-dark: #6A9E3F;
+    --green-deep: #3E6B1F;
+    --green-text: #2D5010;
+    --lime-dark:  #B8D44A;
+    --brown:      #4A3B1F;
+    --muted:      #7A8F5A;
+    --card-edge:  #C8DFA0;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
     font-family: 'Halant', serif;
-    background: #e8edf2;
+    background: #DDE5C8;
     display: flex;
     justify-content: center;
     min-height: 100vh;
@@ -33,1075 +33,642 @@
   .page-wrap {
     width: 100%;
     max-width: 450px;
-    background: var(--white);
+    background: var(--cream);
     position: relative;
     overflow: hidden;
+    padding-bottom: 74px;
   }
 
-  /* ───────── HERO ───────── */
+  /* ══════ HERO ══════ */
   .hero {
-    background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue-mid) 60%, var(--blue-accent) 100%);
-    padding: 0 0 0 0;
+    background: linear-gradient(155deg, var(--green-deep) 0%, var(--green-dark) 55%, var(--green) 100%);
     position: relative;
     overflow: hidden;
   }
 
   .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 50%;
+    content:'';
+    position:absolute; top:-70px; right:-70px;
+    width:210px; height:210px;
+    background:rgba(255,255,255,0.07);
+    border-radius:50%; pointer-events:none;
+  }
+
+  .hero::after {
+    content:'';
+    position:absolute; bottom:60px; left:-40px;
+    width:140px; height:140px;
+    background:rgba(160,200,120,0.12);
+    border-radius:50%; pointer-events:none;
   }
 
   .hero-top-band {
-    background: rgba(0,0,0,0.25);
-    text-align: center;
-    padding: 10px 16px;
-    font-size: 13px;
-    color: #ffe082;
-    letter-spacing: 0.5px;
-    font-weight: 600;
+    background:rgba(0,0,0,0.22);
+    text-align:center; padding:10px 16px;
+    font-size:13px; color:var(--lime);
+    letter-spacing:.5px; font-weight:600;
   }
 
   .hero-body {
-    padding: 28px 22px 0;
-    color: var(--white);
-    position: relative;
-    z-index: 2;
+    padding:28px 22px 0;
+    color:#fff; position:relative; z-index:2;
   }
 
   .hero-eyebrow {
-    display: inline-block;
-    background: #ffe082;
-    color: var(--blue-dark);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 14px;
-    letter-spacing: 0.6px;
+    display:inline-block;
+    background:var(--lime); color:var(--green-deep);
+    font-size:12px; font-weight:700;
+    padding:4px 14px; border-radius:20px;
+    margin-bottom:14px; letter-spacing:.6px;
   }
 
   .hero h1 {
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 12px;
-    color: #ffffff;
+    font-size:28px; font-weight:700;
+    line-height:1.25; margin-bottom:12px; color:#fff;
   }
-
-  .hero h1 span { color: #ffe082; }
+  .hero h1 span { color:var(--lime); }
 
   .hero-sub {
-    font-size: 17px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.88);
-    line-height: 1.55;
-    margin-bottom: 18px;
+    font-size:17px; font-weight:400;
+    color:rgba(255,255,255,.88);
+    line-height:1.55; margin-bottom:18px;
   }
 
-  .hero-stat-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 22px;
-  }
+  .hero-stat-row { display:flex; gap:10px; margin-bottom:22px; }
 
   .hero-stat {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.22);
-    border-radius: 12px;
-    padding: 10px 12px;
-    flex: 1;
-    text-align: center;
-    backdrop-filter: blur(4px);
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:12px; padding:10px 8px;
+    flex:1; text-align:center;
+    backdrop-filter:blur(4px);
   }
 
-  .hero-stat .num { font-size: 22px; font-weight: 700; color: #ffe082; display: block; }
-  .hero-stat .lbl { font-size: 11px; color: rgba(255,255,255,0.8); line-height: 1.3; }
+  .hero-stat .num { font-size:20px; font-weight:700; color:var(--lime); display:block; }
+  .hero-stat .lbl { font-size:11px; color:rgba(255,255,255,.8); line-height:1.3; }
 
   .hero-product-img {
-    display: block;
-    margin: 0 auto;
-    width: 220px;
-    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.35));
-    transition: transform 0.4s ease;
-    animation: floatProd 3s ease-in-out infinite;
+    display:block; margin:0 auto; width:210px;
+    filter:drop-shadow(0 16px 32px rgba(0,0,0,.3));
+    animation:floatProd 3s ease-in-out infinite;
   }
 
   @keyframes floatProd {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%,100%{ transform:translateY(0); }
+    50%    { transform:translateY(-10px); }
   }
 
-  .hero-wave {
-    display: block;
-    width: 100%;
-    margin-top: -2px;
-  }
+  .hero-wave { display:block; width:100%; margin-top:-2px; }
 
-  /* ───────── PAIN SECTION ───────── */
-  .pain-section {
-    background: var(--white);
-    padding: 32px 20px;
-    position: relative;
-  }
-
+  /* ══════ COMMON SECTION ══════ */
   .section-tag {
-    display: inline-block;
-    background: var(--blue-light);
-    color: var(--blue-dark);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+    display:inline-block;
+    background:var(--lime); color:var(--green-deep);
+    font-size:12px; font-weight:700;
+    padding:4px 14px; border-radius:20px;
+    margin-bottom:10px; letter-spacing:.5px;
   }
 
   .section-title {
-    font-size: 23px;
-    font-weight: 700;
-    color: var(--text-main);
-    line-height: 1.3;
-    margin-bottom: 6px;
+    font-size:23px; font-weight:700;
+    color:var(--green-text); line-height:1.3; margin-bottom:6px;
   }
-
-  .section-title span { color: var(--blue-mid); }
+  .section-title span { color:var(--green-dark); }
 
   .section-sub {
-    font-size: 15px;
-    color: var(--gray);
-    line-height: 1.55;
-    margin-bottom: 22px;
+    font-size:15px; color:var(--muted);
+    line-height:1.55; margin-bottom:22px;
   }
 
-  /* Diagonal pain cards */
-  .pain-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .dark-sec .section-tag  { background:rgba(221,235,157,.2); color:var(--lime); }
+  .dark-sec .section-title{ color:#fff; }
+  .dark-sec .section-title span { color:var(--lime); }
+  .dark-sec .section-sub  { color:rgba(255,255,255,.72); }
+
+  /* ══════ PAIN ══════ */
+  .pain-section { background:var(--cream); padding:32px 20px; }
+
+  .pain-cards { display:flex; flex-direction:column; gap:14px; }
 
   .pain-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--gray-light);
-    border-radius: 16px;
-    padding: 14px;
-    border-left: 4px solid var(--blue-mid);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.25s, box-shadow 0.25s;
+    display:flex; align-items:center; gap:14px;
+    background:var(--cream-mid); border-radius:16px; padding:14px;
+    border-left:4px solid var(--green);
+    cursor:pointer; transition:transform .25s, box-shadow .25s;
   }
 
   .pain-card:hover {
-    transform: translateX(6px);
-    box-shadow: -4px 4px 20px rgba(21,101,192,0.18);
+    transform:translateX(6px);
+    box-shadow:-4px 4px 20px rgba(106,158,63,.2);
   }
 
   .pain-card-img {
-    width: 72px;
-    height: 72px;
-    object-fit: cover;
-    border-radius: 12px;
-    flex-shrink: 0;
-    border: 2px solid var(--blue-light);
+    width:72px; height:72px; object-fit:cover;
+    border-radius:12px; flex-shrink:0;
+    border:2px solid var(--lime);
   }
 
-  .pain-card-text h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-main);
-    margin-bottom: 4px;
-  }
+  .pain-card-text h4 { font-size:16px; font-weight:700; color:var(--green-text); margin-bottom:4px; }
+  .pain-card-text p  { font-size:14px; color:var(--muted); line-height:1.45; }
 
-  .pain-card-text p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.45;
-  }
-
-  /* ───────── CAUSE SECTION ───────── */
+  /* ══════ CAUSE ══════ */
   .cause-section {
-    background: var(--blue-dark);
-    padding: 32px 20px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 0 100%);
-    padding-bottom: 56px;
+    background:var(--green-deep);
+    padding:32px 20px 56px;
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 28px),0 100%);
   }
 
-  .cause-section .section-tag { background: rgba(255,255,255,0.15); color: #ffe082; }
-  .cause-section .section-title { color: #fff; }
-  .cause-section .section-title span { color: #ffe082; }
-  .cause-section .section-sub { color: rgba(255,255,255,0.75); }
-
-  .cause-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
+  .cause-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
   .cause-card {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 16px;
-    padding: 14px 12px;
-    text-align: center;
-    transition: background 0.3s, transform 0.3s;
-    cursor: pointer;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:16px; padding:14px 12px;
+    text-align:center; cursor:pointer;
+    transition:background .3s, transform .3s;
   }
 
-  .cause-card:hover {
-    background: rgba(255,255,255,0.2);
-    transform: scale(1.04);
-  }
+  .cause-card:hover { background:rgba(255,255,255,.18); transform:scale(1.04); }
 
-  .cause-card img {
-    width: 100%;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 8px;
-  }
+  .cause-card img { width:100%; height:90px; object-fit:cover; border-radius:10px; margin-bottom:8px; }
+  .cause-card p   { font-size:14px; font-weight:600; color:#fff; line-height:1.3; }
 
-  .cause-card p {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.3;
-  }
-
-  /* ───────── CONSEQUENCE ───────── */
-  .consequence-section {
-    background: #fff;
-    padding: 48px 20px 32px;
-  }
+  /* ══════ CONSEQUENCE ══════ */
+  .consequence-section { background:var(--cream); padding:48px 20px 32px; }
 
   .consequence-strip {
-    background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 100%);
-    border-radius: 18px;
-    padding: 20px 18px;
-    margin-bottom: 22px;
+    background:linear-gradient(135deg,#7B1A1A 0%,#A83232 100%);
+    border-radius:18px; padding:20px 18px;
   }
 
-  .consequence-strip h3 {
-    font-size: 18px;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 14px;
-  }
+  .consequence-strip h3 { font-size:18px; color:#fff; font-weight:700; margin-bottom:14px; }
 
-  .cons-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
+  .cons-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; }
 
   .cons-item img {
-    width: 58px;
-    height: 58px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 2px solid rgba(255,255,255,0.3);
+    width:58px; height:58px; border-radius:10px;
+    object-fit:cover; flex-shrink:0;
+    border:2px solid rgba(255,255,255,.25);
   }
 
-  .cons-item-text { color: #fff; }
-  .cons-item-text strong { font-size: 15px; display: block; margin-bottom: 2px; }
-  .cons-item-text span { font-size: 13px; opacity: 0.85; line-height: 1.4; }
+  .cons-item-text { color:#fff; }
+  .cons-item-text strong { font-size:15px; display:block; margin-bottom:2px; }
+  .cons-item-text span   { font-size:13px; opacity:.85; line-height:1.4; }
 
-  /* ───────── PRODUCT INTRO ───────── */
+  /* ══════ PRODUCT INTRO ══════ */
   .product-intro {
-    background: var(--blue-light);
-    padding: 32px 20px;
-    position: relative;
-    overflow: hidden;
+    background:var(--cream-mid); padding:32px 20px;
+    position:relative; overflow:hidden;
   }
 
   .product-intro::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; right: -40px;
-    width: 160px; height: 160px;
-    background: var(--blue-accent);
-    opacity: 0.1;
-    border-radius: 50%;
+    content:''; position:absolute; bottom:-40px; right:-40px;
+    width:160px; height:160px;
+    background:var(--lime); opacity:.18; border-radius:50%;
   }
 
-  .product-hero-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 22px;
-  }
+  .product-hero-row { display:flex; align-items:center; gap:16px; margin-bottom:22px; }
 
   .product-hero-img {
-    width: 130px;
-    flex-shrink: 0;
-    filter: drop-shadow(0 8px 20px rgba(13,71,161,0.25));
+    width:130px; flex-shrink:0;
+    filter:drop-shadow(0 8px 20px rgba(62,107,31,.25));
   }
 
-  .product-hero-text h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--blue-dark);
-    margin-bottom: 6px;
-  }
+  .product-hero-text h2 { font-size:26px; font-weight:700; color:var(--green-deep); margin-bottom:6px; }
+  .product-hero-text p  { font-size:14px; color:var(--muted); line-height:1.5; }
 
-  .product-hero-text p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.5;
-  }
-
-  .product-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-  }
+  .product-badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
 
   .badge {
-    background: var(--blue-mid);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
+    background:var(--green-dark); color:#fff;
+    font-size:12px; font-weight:600;
+    padding:5px 12px; border-radius:20px;
   }
 
-  /* ───────── HOW IT WORKS ───────── */
-  .how-section {
-    background: var(--white);
-    padding: 32px 20px;
-  }
+  /* ══════ HOW IT WORKS ══════ */
+  .how-section { background:var(--cream); padding:32px 20px; }
 
-  .steps-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    position: relative;
-  }
+  .steps-list { display:flex; flex-direction:column; gap:0; position:relative; }
 
   .steps-list::before {
-    content: '';
-    position: absolute;
-    left: 34px;
-    top: 20px;
-    bottom: 20px;
-    width: 3px;
-    background: linear-gradient(180deg, var(--blue-mid), var(--blue-accent));
-    border-radius: 3px;
-    z-index: 0;
+    content:''; position:absolute;
+    left:22px; top:20px; bottom:20px; width:3px;
+    background:linear-gradient(180deg,var(--green-dark),var(--lime));
+    border-radius:3px; z-index:0;
   }
 
   .step-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 18px;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-    transition: transform 0.25s;
+    display:flex; align-items:flex-start; gap:14px;
+    margin-bottom:18px; position:relative; z-index:1;
+    cursor:pointer; transition:transform .25s;
   }
 
-  .step-item:hover { transform: translateX(5px); }
+  .step-item:hover { transform:translateX(5px); }
 
   .step-num {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--blue-mid);
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(25,118,210,0.35);
-    transition: background 0.3s, transform 0.3s;
+    width:44px; height:44px; border-radius:50%;
+    background:var(--green-dark); color:#fff;
+    font-size:18px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    box-shadow:0 4px 12px rgba(106,158,63,.35);
+    transition:background .3s, transform .3s;
   }
 
-  .step-item:hover .step-num {
-    background: var(--blue-dark);
-    transform: scale(1.1);
-  }
+  .step-item:hover .step-num { background:var(--green-deep); transform:scale(1.1); }
 
-  .step-body { flex: 1; }
-  .step-body h4 { font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
-  .step-body p { font-size: 14px; color: var(--gray); line-height: 1.5; margin-bottom: 8px; }
+  .step-body { flex:1; }
+  .step-body h4 { font-size:17px; font-weight:700; color:var(--green-text); margin-bottom:4px; }
+  .step-body p  { font-size:14px; color:var(--muted); line-height:1.5; margin-bottom:8px; }
 
   .step-img {
-    width: 100%;
-    border-radius: 14px;
-    height: 110px;
-    object-fit: cover;
-    border: 2px solid var(--blue-light);
+    width:100%; border-radius:14px; height:110px;
+    object-fit:cover; border:2px solid var(--lime);
   }
 
-  /* ───────── BEFORE AFTER ───────── */
+  /* ══════ BEFORE / AFTER ══════ */
   .ba-section {
-    background: linear-gradient(160deg, var(--blue-dark) 0%, #0a3880 100%);
-    padding: 32px 20px 44px;
-    clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
-    padding-top: 52px;
+    background:var(--green-deep);
+    padding:52px 20px 44px;
+    clip-path:polygon(0 20px,100% 0,100% calc(100% - 20px),0 100%);
   }
-
-  .ba-section .section-tag { background: rgba(255,224,130,0.2); color: #ffe082; }
-  .ba-section .section-title { color: #fff; }
-  .ba-section .section-title span { color: #ffe082; }
-  .ba-section .section-sub { color: rgba(255,255,255,0.75); }
 
   .ba-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 16px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:20px; overflow:hidden; margin-bottom:16px;
   }
 
-  .ba-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-  }
+  .ba-images { display:grid; grid-template-columns:1fr 1fr; position:relative; }
 
   .ba-images::after {
-    content: 'VS';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffe082;
-    color: var(--blue-dark);
-    font-size: 13px;
-    font-weight: 800;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+    content:'VS'; position:absolute;
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    background:var(--lime); color:var(--green-deep);
+    font-size:13px; font-weight:800;
+    width:36px; height:36px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    z-index:3;
+    box-shadow:0 0 0 3px rgba(255,255,255,.35);
   }
 
-  .ba-side {
-    text-align: center;
-    padding: 14px 10px 10px;
-  }
+  .ba-side { text-align:center; padding:14px 10px 10px; }
+  .ba-side:first-child { background:rgba(139,0,0,.25); border-right:1px solid rgba(255,255,255,.1); }
+  .ba-side:last-child  { background:rgba(40,90,10,.35); }
 
-  .ba-side:first-child { background: rgba(183,28,28,0.2); border-right: 1px solid rgba(255,255,255,0.1); }
-  .ba-side:last-child { background: rgba(27,94,32,0.3); }
+  .ba-side img { width:100%; height:100px; object-fit:cover; border-radius:10px; margin-bottom:8px; }
 
-  .ba-side img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 8px;
-  }
+  .ba-label { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+  .ba-side:first-child .ba-label { color:#ffb3b3; }
+  .ba-side:last-child  .ba-label { color:var(--lime); }
 
-  .ba-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+  .ba-desc { padding:14px; border-top:1px solid rgba(255,255,255,.1); }
+  .ba-desc h4 { font-size:15px; font-weight:700; color:#fff; margin-bottom:6px; }
+  .ba-desc p  { font-size:13px; color:rgba(255,255,255,.75); line-height:1.5; }
 
-  .ba-side:first-child .ba-label { color: #ef9a9a; }
-  .ba-side:last-child .ba-label { color: #a5d6a7; }
+  /* ══════ INGREDIENTS ══════ */
+  .ingredients-section { background:var(--cream-mid); padding:48px 20px 32px; }
 
-  .ba-desc {
-    padding: 14px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .ba-desc h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-  .ba-desc p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; }
-
-  /* ───────── INGREDIENTS ───────── */
-  .ingredients-section {
-    background: var(--white);
-    padding: 48px 20px 32px;
-  }
-
-  .ing-scroll {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .ing-scroll { display:flex; flex-direction:column; gap:14px; }
 
   .ing-card {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    background: var(--gray-light);
-    border-radius: 16px;
-    padding: 14px;
-    border-right: 4px solid var(--blue-accent);
-    transition: transform 0.25s, box-shadow 0.25s;
-    cursor: pointer;
+    display:flex; gap:14px; align-items:center;
+    background:var(--cream); border-radius:16px; padding:14px;
+    border-right:4px solid var(--green);
+    cursor:pointer; transition:transform .25s, box-shadow .25s;
   }
 
   .ing-card:hover {
-    transform: translateX(-5px);
-    box-shadow: 4px 4px 18px rgba(21,101,192,0.15);
+    transform:translateX(-5px);
+    box-shadow:4px 4px 18px rgba(106,158,63,.18);
   }
 
   .ing-card img {
-    width: 74px;
-    height: 74px;
-    border-radius: 12px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 2px solid var(--blue-light);
+    width:74px; height:74px; border-radius:12px;
+    object-fit:cover; flex-shrink:0;
+    border:2px solid var(--lime);
   }
 
-  .ing-text h4 { font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
-  .ing-text p { font-size: 14px; color: var(--gray); line-height: 1.45; }
+  .ing-text h4 { font-size:17px; font-weight:700; color:var(--green-text); margin-bottom:4px; }
+  .ing-text p  { font-size:14px; color:var(--muted); line-height:1.45; }
 
-  /* ───────── DOCTORS ───────── */
-  .doc-section {
-    background: var(--blue-dark);
-    padding: 32px 20px;
-  }
+  /* ══════ DOCTORS ══════ */
+  .doc-section { background:var(--green-dark); padding:32px 20px; }
 
-  .doc-section .section-tag { background: rgba(255,224,130,0.15); color: #ffe082; }
-  .doc-section .section-title { color: #fff; }
-  .doc-section .section-title span { color: #ffe082; }
-  .doc-section .section-sub { color: rgba(255,255,255,0.75); }
-
-  .doc-points {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .doc-points { display:flex; flex-direction:column; gap:14px; }
 
   .doc-point {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    background: rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.12);
-    transition: background 0.3s;
-    cursor: pointer;
+    display:flex; gap:12px; align-items:flex-start;
+    background:rgba(255,255,255,.1);
+    border-radius:14px; padding:14px;
+    border:1px solid rgba(255,255,255,.14);
+    cursor:pointer; transition:background .3s;
   }
 
-  .doc-point:hover { background: rgba(255,255,255,0.15); }
+  .doc-point:hover { background:rgba(255,255,255,.18); }
 
-  .doc-point img {
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
+  .doc-point img { width:70px; height:70px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+  .doc-point-text h4 { font-size:15px; font-weight:700; color:var(--lime); margin-bottom:4px; }
+  .doc-point-text p  { font-size:14px; color:rgba(255,255,255,.82); line-height:1.45; }
 
-  .doc-point-text h4 { font-size: 15px; font-weight: 700; color: #ffe082; margin-bottom: 4px; }
-  .doc-point-text p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.45; }
+  /* ══════ REVIEWS ══════ */
+  .reviews-section { background:var(--cream); padding:32px 20px; }
 
-  /* ───────── REVIEWS ───────── */
-  .reviews-section {
-    background: var(--white);
-    padding: 32px 20px;
-  }
-
-  .review-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .review-cards { display:flex; flex-direction:column; gap:16px; }
 
   .review-card {
-    background: var(--gray-light);
-    border-radius: 18px;
-    padding: 18px;
-    position: relative;
-    border-top: 4px solid var(--blue-mid);
-    transition: transform 0.25s, box-shadow 0.25s;
-    cursor: pointer;
+    background:var(--cream-mid); border-radius:18px; padding:18px;
+    border-top:4px solid var(--green);
+    cursor:pointer; transition:transform .25s, box-shadow .25s;
   }
 
   .review-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(21,101,192,0.14);
+    transform:translateY(-4px);
+    box-shadow:0 8px 24px rgba(106,158,63,.18);
   }
 
-  .review-top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
+  .review-top { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
 
   .review-avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 3px solid var(--blue-mid);
+    width:52px; height:52px; border-radius:50%;
+    object-fit:cover; flex-shrink:0;
+    border:3px solid var(--green);
   }
 
-  .review-meta h4 { font-size: 16px; font-weight: 700; color: var(--text-main); }
-  .review-meta span { font-size: 12px; color: var(--gray); }
+  .review-meta h4   { font-size:16px; font-weight:700; color:var(--green-text); }
+  .review-meta span { font-size:12px; color:var(--muted); }
 
-  .stars { color: #FFC107; font-size: 16px; margin-bottom: 6px; }
+  .stars { color:#E6A817; font-size:16px; margin-bottom:6px; }
 
-  .review-text { font-size: 15px; color: var(--gray-dark); line-height: 1.6; }
+  .review-text { font-size:15px; color:var(--brown); line-height:1.6; }
 
   .review-result-img {
-    width: 100%;
-    border-radius: 12px;
-    margin-top: 12px;
-    height: 100px;
-    object-fit: cover;
-    border: 2px solid var(--blue-light);
+    width:100%; border-radius:12px; margin-top:12px;
+    height:100px; object-fit:cover;
+    border:2px solid var(--lime);
   }
 
-  /* ───────── OFFER SECTION ───────── */
+  /* ══════ HOW TO USE ══════ */
+  .use-section { background:var(--cream-mid); padding:32px 20px; }
+
+  .use-steps { display:flex; flex-direction:column; gap:14px; }
+
+  .use-step {
+    display:flex; gap:14px; align-items:center;
+    background:var(--cream); border-radius:16px; padding:14px;
+    cursor:pointer; transition:transform .25s;
+  }
+
+  .use-step:hover { transform:translateX(5px); }
+
+  .use-step img {
+    width:76px; height:76px; border-radius:12px;
+    object-fit:cover; flex-shrink:0;
+    border:2px solid var(--green);
+  }
+
+  .use-step-text h4 { font-size:16px; font-weight:700; color:var(--green-deep); margin-bottom:4px; }
+  .use-step-text p  { font-size:14px; color:var(--muted); line-height:1.45; }
+
+  /* ══════ OFFER ══════ */
   .offer-section {
-    background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
-    padding: 32px 20px;
-    position: relative;
-    overflow: hidden;
+    background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-dark) 100%);
+    padding:32px 20px; position:relative; overflow:hidden;
   }
 
   .offer-section::before {
-    content: '';
-    position: absolute;
-    top: -50px; right: -50px;
-    width: 180px; height: 180px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 50%;
+    content:''; position:absolute; top:-50px; right:-50px;
+    width:180px; height:180px;
+    background:rgba(221,235,157,.1); border-radius:50%;
   }
 
-  .offer-section .section-title { color: #fff; font-size: 25px; }
-  .offer-section .section-title span { color: #ffe082; }
-
-  .offer-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 18px 0;
-  }
+  .offer-cards { display:flex; flex-direction:column; gap:10px; margin:18px 0; }
 
   .offer-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 14px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: background 0.3s, transform 0.25s;
-    cursor: pointer;
+    display:flex; align-items:center; gap:12px;
+    background:rgba(255,255,255,.1);
+    border-radius:14px; padding:14px;
+    border:1px solid rgba(255,255,255,.18);
+    cursor:pointer; transition:background .3s, transform .25s;
   }
 
-  .offer-item:hover {
-    background: rgba(255,255,255,0.2);
-    transform: scale(1.02);
-  }
+  .offer-item:hover { background:rgba(255,255,255,.18); transform:scale(1.02); }
 
-  .offer-item img {
-    width: 58px;
-    height: 58px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .offer-item-text h4 { font-size: 16px; font-weight: 700; color: #ffe082; margin-bottom: 2px; }
-  .offer-item-text p { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.4; }
+  .offer-item img { width:58px; height:58px; border-radius:10px; object-fit:cover; flex-shrink:0; }
+  .offer-item-text h4 { font-size:16px; font-weight:700; color:var(--lime); margin-bottom:2px; }
+  .offer-item-text p  { font-size:13px; color:rgba(255,255,255,.85); line-height:1.4; }
 
   .price-box {
-    background: #fff;
-    border-radius: 16px;
-    padding: 18px;
-    text-align: center;
-    margin: 18px 0;
+    background:var(--cream); border-radius:16px;
+    padding:18px; text-align:center; margin:18px 0;
   }
 
-  .price-old { font-size: 18px; color: var(--gray); text-decoration: line-through; }
-  .price-new { font-size: 38px; font-weight: 700; color: var(--blue-dark); line-height: 1; margin: 4px 0; }
-  .price-save { background: #B71C1C; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 20px; display: inline-block; }
+  .price-old { font-size:18px; color:var(--muted); text-decoration:line-through; }
+  .price-new { font-size:38px; font-weight:700; color:var(--green-deep); line-height:1; margin:4px 0; }
+  .price-save {
+    background:#7B1A1A; color:#fff;
+    font-size:13px; font-weight:700;
+    padding:4px 14px; border-radius:20px; display:inline-block;
+  }
 
-  /* ───────── CTA BUTTON ───────── */
+  /* ══════ CTA BUTTON ══════ */
   .cta-btn {
-    display: block;
-    width: 100%;
-    background: linear-gradient(135deg, #ffe082 0%, #FFB300 100%);
-    color: var(--blue-dark);
-    font-family: 'Halant', serif;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 18px;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    transition: transform 0.2s, box-shadow 0.2s;
-    letter-spacing: 0.3px;
-    animation: ctaPulse 2.5s ease-in-out infinite;
-    text-decoration: none;
+    display:block; width:100%;
+    background:linear-gradient(135deg,var(--lime) 0%,var(--green) 100%);
+    color:var(--green-deep);
+    font-family:'Halant',serif;
+    font-size:20px; font-weight:700;
+    padding:18px; border:none;
+    border-radius:16px; cursor:pointer; text-align:center;
+    box-shadow:0 8px 24px rgba(62,107,31,.3);
+    transition:transform .2s, box-shadow .2s;
+    letter-spacing:.3px;
+    animation:ctaPulse 2.5s ease-in-out infinite;
+    text-decoration:none;
   }
 
   @keyframes ctaPulse {
-    0%,100% { box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-    50% { box-shadow: 0 12px 36px rgba(255,193,7,0.55); }
+    0%,100%{ box-shadow:0 8px 24px rgba(62,107,31,.3); }
+    50%    { box-shadow:0 12px 36px rgba(160,200,120,.55); }
   }
 
   .cta-btn:hover {
-    transform: scale(1.03);
-    animation: none;
-    box-shadow: 0 14px 36px rgba(0,0,0,0.3);
+    transform:scale(1.03); animation:none;
+    box-shadow:0 14px 36px rgba(62,107,31,.38);
   }
 
-  .cta-note {
-    font-size: 13px;
-    color: rgba(255,255,255,0.75);
-    text-align: center;
-    margin-top: 10px;
-  }
+  .cta-note { font-size:13px; color:rgba(255,255,255,.72); text-align:center; margin-top:10px; }
 
-  /* ───────── TRUST BADGES ───────── */
-  .trust-section {
-    background: var(--gray-light);
-    padding: 24px 20px;
-  }
+  /* ══════ TRUST ══════ */
+  .trust-section { background:var(--cream-mid); padding:24px 20px; }
 
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+  .trust-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
 
   .trust-item {
-    background: #fff;
-    border-radius: 14px;
-    padding: 14px 12px;
-    text-align: center;
-    border: 1px solid var(--blue-light);
-    transition: transform 0.25s, box-shadow 0.25s;
-    cursor: default;
+    background:var(--cream); border-radius:14px; padding:14px 12px;
+    text-align:center; border:1px solid var(--lime);
+    cursor:default; transition:transform .25s, box-shadow .25s;
   }
 
   .trust-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(21,101,192,0.12);
+    transform:translateY(-3px);
+    box-shadow:0 6px 18px rgba(106,158,63,.15);
   }
 
-  .trust-icon { font-size: 28px; display: block; margin-bottom: 6px; }
-  .trust-item h4 { font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 2px; }
-  .trust-item p { font-size: 12px; color: var(--gray); line-height: 1.3; }
+  .trust-icon { font-size:28px; display:block; margin-bottom:6px; }
+  .trust-item h4 { font-size:14px; font-weight:700; color:var(--green-text); margin-bottom:2px; }
+  .trust-item p  { font-size:12px; color:var(--muted); line-height:1.3; }
 
-  /* ───────── HOW TO USE ───────── */
-  .use-section {
-    background: var(--white);
-    padding: 32px 20px;
-  }
-
-  .use-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .use-step {
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    background: var(--blue-light);
-    border-radius: 16px;
-    padding: 14px;
-    transition: transform 0.25s;
-    cursor: pointer;
-  }
-
-  .use-step:hover { transform: translateX(5px); }
-
-  .use-step img {
-    width: 76px;
-    height: 76px;
-    border-radius: 12px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 2px solid var(--blue-mid);
-  }
-
-  .use-step-text h4 { font-size: 16px; font-weight: 700; color: var(--blue-dark); margin-bottom: 4px; }
-  .use-step-text p { font-size: 14px; color: var(--gray); line-height: 1.45; }
-
-  /* ───────── FAQ ───────── */
-  .faq-section {
-    background: var(--gray-light);
-    padding: 32px 20px;
-  }
+  /* ══════ FAQ ══════ */
+  .faq-section { background:var(--cream-mid); padding:32px 20px; }
 
   .faq-item {
-    background: #fff;
-    border-radius: 16px;
-    margin-bottom: 10px;
-    border: 1px solid var(--blue-light);
-    overflow: hidden;
+    background:var(--cream); border-radius:16px;
+    margin-bottom:10px; border:1px solid var(--lime); overflow:hidden;
   }
 
   .faq-q {
-    padding: 16px 18px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-main);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.25s;
-    user-select: none;
+    padding:16px 18px; font-size:16px; font-weight:600; color:var(--green-text);
+    cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+    transition:background .25s; user-select:none;
   }
 
-  .faq-q:hover { background: var(--blue-light); }
+  .faq-q:hover { background:var(--cream-mid); }
 
-  .faq-arrow {
-    font-size: 18px;
-    color: var(--blue-mid);
-    transition: transform 0.3s;
-    flex-shrink: 0;
-    margin-left: 8px;
-  }
+  .faq-arrow { font-size:18px; color:var(--green-dark); transition:transform .3s; flex-shrink:0; margin-left:8px; }
 
   .faq-a {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s;
-    font-size: 15px;
-    color: var(--gray-dark);
-    line-height: 1.6;
-    padding: 0 18px;
+    max-height:0; overflow:hidden;
+    transition:max-height .4s ease, padding .3s;
+    font-size:15px; color:var(--brown); line-height:1.6; padding:0 18px;
   }
 
-  .faq-item.open .faq-a {
-    max-height: 200px;
-    padding: 0 18px 16px;
-  }
+  .faq-item.open .faq-a     { max-height:200px; padding:0 18px 16px; }
+  .faq-item.open .faq-arrow { transform:rotate(180deg); }
 
-  .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-  /* ───────── ORDER FORM ───────── */
+  /* ══════ ORDER FORM ══════ */
   .order-section {
-    background: linear-gradient(160deg, var(--blue-dark) 0%, #0a3d8f 100%);
-    padding: 32px 20px;
+    background:linear-gradient(160deg,var(--green-deep) 0%,var(--green-dark) 100%);
+    padding:32px 20px;
   }
-
-  .order-section .section-title { color: #fff; }
-  .order-section .section-title span { color: #ffe082; }
-  .order-section .section-sub { color: rgba(255,255,255,0.75); }
 
   .order-form {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 22px 18px;
-    backdrop-filter: blur(4px);
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px; padding:22px 18px;
+    backdrop-filter:blur(4px);
   }
 
-  .form-group { margin-bottom: 16px; }
+  .form-group { margin-bottom:16px; }
 
   .form-group label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 6px;
+    display:block; font-size:14px; font-weight:600;
+    color:rgba(255,255,255,.85); margin-bottom:6px;
   }
 
   .form-group input {
-    width: 100%;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 12px;
-    padding: 14px 16px;
-    font-family: 'Halant', serif;
-    font-size: 16px;
-    color: #fff;
-    outline: none;
-    transition: border 0.3s, background 0.3s;
+    width:100%;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:12px; padding:14px 16px;
+    font-family:'Halant',serif; font-size:16px; color:#fff;
+    outline:none; transition:border .3s, background .3s;
   }
 
-  .form-group input::placeholder { color: rgba(255,255,255,0.45); }
-
-  .form-group input:focus {
-    border-color: #ffe082;
-    background: rgba(255,255,255,0.18);
-  }
+  .form-group input::placeholder { color:rgba(255,255,255,.42); }
+  .form-group input:focus { border-color:var(--lime); background:rgba(255,255,255,.18); }
 
   .cod-badge {
-    background: rgba(255,224,130,0.15);
-    border: 1px solid rgba(255,224,130,0.4);
-    border-radius: 12px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
+    background:rgba(221,235,157,.15);
+    border:1px solid rgba(221,235,157,.38);
+    border-radius:12px; padding:12px 14px;
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
   }
 
-  .cod-badge span { font-size: 24px; }
-  .cod-badge p { font-size: 14px; color: #ffe082; font-weight: 600; line-height: 1.3; }
+  .cod-badge span { font-size:24px; }
+  .cod-badge p { font-size:14px; color:var(--lime); font-weight:600; line-height:1.3; }
 
   .submit-btn {
-    width: 100%;
-    background: linear-gradient(135deg, #ffe082 0%, #FFB300 100%);
-    color: var(--blue-dark);
-    font-family: 'Halant', serif;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 16px;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    letter-spacing: 0.3px;
-    position: relative;
-    overflow: hidden;
+    width:100%;
+    background:linear-gradient(135deg,var(--lime) 0%,var(--green) 100%);
+    color:var(--green-deep);
+    font-family:'Halant',serif; font-size:20px; font-weight:700;
+    padding:16px; border:none; border-radius:14px;
+    cursor:pointer; transition:transform .2s, box-shadow .2s;
+    letter-spacing:.3px;
   }
 
-  .submit-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  }
+  .submit-btn:hover { transform:scale(1.02); box-shadow:0 8px 24px rgba(0,0,0,.2); }
 
-  .submit-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* Loading spinner */
+  /* Loading */
   .loading-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(13,71,161,0.85);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 18px;
+    display:none; position:fixed; inset:0;
+    background:rgba(62,107,31,.88);
+    z-index:9999;
+    justify-content:center; align-items:center;
+    flex-direction:column; gap:18px;
   }
 
-  .loading-overlay.show { display: flex; }
+  .loading-overlay.show { display:flex; }
 
   .spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid rgba(255,255,255,0.2);
-    border-top-color: #ffe082;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    width:60px; height:60px;
+    border:5px solid rgba(255,255,255,.2);
+    border-top-color:var(--lime);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
   }
 
-  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes spin { to{transform:rotate(360deg);} }
 
-  .loading-text { font-size: 18px; color: #fff; font-weight: 600; }
+  .loading-text { font-size:18px; color:#fff; font-weight:600; }
 
-  /* Success message */
   .success-msg {
-    display: none;
-    background: #1B5E20;
-    border-radius: 16px;
-    padding: 22px;
-    text-align: center;
-    color: #fff;
+    display:none;
+    background:rgba(40,90,10,.5);
+    border:1px solid var(--lime);
+    border-radius:16px; padding:22px; text-align:center; color:#fff;
   }
 
-  .success-msg.show { display: block; }
-  .success-msg h3 { font-size: 22px; margin-bottom: 8px; color: #a5d6a7; }
-  .success-msg p { font-size: 16px; color: rgba(255,255,255,0.85); }
+  .success-msg.show { display:block; }
+  .success-msg h3 { font-size:22px; margin-bottom:8px; color:var(--lime); }
+  .success-msg p  { font-size:16px; color:rgba(255,255,255,.85); }
 
-  /* ───────── DISCLAIMER ───────── */
+  /* ══════ DISCLAIMER ══════ */
   .disclaimer-section {
-    background: var(--gray-light);
-    padding: 22px 20px;
-    border-top: 3px solid var(--blue-light);
+    background:var(--cream-mid); padding:22px 20px;
+    border-top:3px solid var(--lime);
   }
 
   .disclaimer-section h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--gray-dark);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size:13px; font-weight:700; color:var(--muted);
+    margin-bottom:8px; text-transform:uppercase; letter-spacing:.5px;
   }
 
-  .disclaimer-section p {
-    font-size: 12px;
-    color: var(--gray);
-    line-height: 1.65;
-  }
+  .disclaimer-section p { font-size:12px; color:var(--muted); line-height:1.65; }
 
-  /* ───────── STICKY CTA ───────── */
+  /* ══════ STICKY CTA ══════ */
   .sticky-cta {
-    position: fixed;
-    bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 100%;
-    max-width: 450px;
-    background: var(--blue-dark);
-    padding: 12px 16px;
-    z-index: 100;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-    display: flex;
-    gap: 10px;
-    align-items: center;
+    position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+    width:100%; max-width:450px;
+    background:var(--green-deep); padding:12px 16px;
+    z-index:100; box-shadow:0 -4px 20px rgba(0,0,0,.18);
+    display:flex; gap:10px; align-items:center;
   }
 
-  .sticky-cta-text { flex: 1; }
-  .sticky-cta-text p { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.3; }
-  .sticky-cta-text strong { font-size: 15px; color: #ffe082; }
+  .sticky-cta-text { flex:1; }
+  .sticky-cta-text p      { font-size:12px; color:rgba(255,255,255,.72); line-height:1.3; }
+  .sticky-cta-text strong { font-size:15px; color:var(--lime); }
 
   .sticky-btn {
-    background: linear-gradient(135deg, #ffe082, #FFB300);
-    color: var(--blue-dark);
-    font-family: 'Halant', serif;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 11px 20px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: transform 0.2s;
+    background:linear-gradient(135deg,var(--lime),var(--green));
+    color:var(--green-deep);
+    font-family:'Halant',serif; font-size:15px; font-weight:700;
+    padding:11px 20px; border:none; border-radius:12px;
+    cursor:pointer; white-space:nowrap; transition:transform .2s;
   }
 
-  .sticky-btn:hover { transform: scale(1.04); }
-
-  /* Bottom padding for sticky CTA */
-  .page-wrap { padding-bottom: 72px; }
-
-  /* Placeholder images – colored divs with text overlay */
-  .img-placeholder {
-    background: linear-gradient(135deg, var(--blue-light), var(--blue-mid));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.9);
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-    border-radius: 10px;
-    letter-spacing: 0.3px;
-  }
+  .sticky-btn:hover { transform:scale(1.04); }
 </style>
 </head>
 <body>
@@ -1113,165 +680,96 @@
 
 <div class="page-wrap">
 
-  <!-- ══════════════ HERO ══════════════ -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-top-band">🔥 Limited Time Offer — Free Delivery + 10% Discount अभी उपलब्ध!</div>
     <div class="hero-body">
       <span class="hero-eyebrow">⚠️ बच्चों की नींद का समाधान</span>
       <h1>क्या आपका बच्चा रात में ठीक से <span>सो नहीं पाता?</span></h1>
       <p class="hero-sub">ये उसकी सेहत और दिमाग पर असर डाल सकता है… उसकी growth भी रोक सकता है</p>
-
       <div class="hero-stat-row">
-        <div class="hero-stat">
-          <span class="num">3 में 1</span>
-          <span class="lbl">बच्चा नींद की समस्या से परेशान</span>
-        </div>
-        <div class="hero-stat">
-          <span class="num">10 दिन</span>
-          <span class="lbl">में दिखने लगता है फर्क</span>
-        </div>
-        <div class="hero-stat">
-          <span class="num">100%</span>
-          <span class="lbl">Natural & Safe</span>
-        </div>
+        <div class="hero-stat"><span class="num">3 में 1</span><span class="lbl">बच्चा नींद की समस्या से परेशान</span></div>
+        <div class="hero-stat"><span class="num">10 दिन</span><span class="lbl">में दिखने लगता है फर्क</span></div>
+        <div class="hero-stat"><span class="num">100%</span><span class="lbl">Natural &amp; Safe</span></div>
       </div>
-
-      <img src="./Image/3.avif" alt="SlimKid Product" class="hero-product-img"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-      <div style="display:none; width:220px; height:240px; margin:0 auto; background:linear-gradient(135deg,rgba(255,255,255,0.2),rgba(255,255,255,0.05)); border-radius:20px; border:2px solid rgba(255,255,255,0.3); align-items:center; justify-content:center; color:#fff; font-size:15px; font-weight:700;">
-        SlimKid Product
-      </div>
+      <img src="./Image/product.png" alt="SlimKid Product" class="hero-product-img" onerror="this.style.display='none'">
     </div>
-    <svg class="hero-wave" viewBox="0 0 450 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,30 Q112,0 225,25 Q337,50 450,20 L450,40 L0,40 Z" fill="#ffffff"/>
+    <svg class="hero-wave" viewBox="0 0 450 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,32 Q112,2 225,26 Q337,50 450,22 L450,42 L0,42 Z" fill="#FFFDF6"/>
     </svg>
   </section>
 
-  <!-- ══════════════ PAIN ══════════════ -->
+  <!-- PAIN -->
   <section class="pain-section">
     <span class="section-tag">😟 क्या ये हो रहा है आपके बच्चे के साथ?</span>
     <h2 class="section-title">बच्चे की <span>खराब नींद</span> = कमजोर भविष्य</h2>
     <p class="section-sub">अभी ध्यान देना जरूरी है — हर 3 में से 1 बच्चा नींद की समस्या से परेशान है</p>
-
     <div class="pain-cards">
-
       <div class="pain-card">
-        <img src="https://images.unsplash.com/photo-1518895312237-a9e23508077d?w=200&h=200&fit=crop" alt="रात में जागना" class="pain-card-img"
-             onerror="this.style.display='none'">
-        <div class="pain-card-text">
-          <h4>🌙 देर रात तक जागना</h4>
-          <p>बच्चा घंटों बिस्तर पर करवटें बदलता रहता है, नींद नहीं आती</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1518895312237-a9e23508077d?w=200&h=200&fit=crop" alt="" class="pain-card-img" onerror="this.style.display='none'">
+        <div class="pain-card-text"><h4>🌙 देर रात तक जागना</h4><p>बच्चा घंटों बिस्तर पर करवटें बदलता रहता है, नींद नहीं आती</p></div>
       </div>
-
       <div class="pain-card">
-        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=200&h=200&fit=crop" alt="सुबह उठना" class="pain-card-img"
-             onerror="this.style.display='none'">
-        <div class="pain-card-text">
-          <h4>☀️ सुबह उठने में दिक्कत</h4>
-          <p>हर सुबह लड़ाई होती है उठाने में, स्कूल के लिए तैयार होना मुश्किल</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=200&h=200&fit=crop" alt="" class="pain-card-img" onerror="this.style.display='none'">
+        <div class="pain-card-text"><h4>☀️ सुबह उठने में दिक्कत</h4><p>हर सुबह लड़ाई होती है उठाने में, स्कूल के लिए तैयार होना मुश्किल</p></div>
       </div>
-
       <div class="pain-card">
-        <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=200&h=200&fit=crop" alt="पढ़ाई में ध्यान" class="pain-card-img"
-             onerror="this.style.display='none'">
-        <div class="pain-card-text">
-          <h4>📚 पढ़ाई में ध्यान नहीं</h4>
-          <p>थके हुए दिमाग से पढ़ाई में concentrate नहीं हो पाता</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=200&h=200&fit=crop" alt="" class="pain-card-img" onerror="this.style.display='none'">
+        <div class="pain-card-text"><h4>📚 पढ़ाई में ध्यान नहीं</h4><p>थके हुए दिमाग से पढ़ाई में concentrate नहीं हो पाता</p></div>
       </div>
-
       <div class="pain-card">
-        <img src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=200&h=200&fit=crop" alt="चिड़चिड़ापन" class="pain-card-img"
-             onerror="this.style.display='none'">
-        <div class="pain-card-text">
-          <h4>😤 चिड़चिड़ापन और गुस्सा</h4>
-          <p>छोटी-छोटी बात पर गुस्सा, mood swings और रोना</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=200&h=200&fit=crop" alt="" class="pain-card-img" onerror="this.style.display='none'">
+        <div class="pain-card-text"><h4>😤 चिड़चिड़ापन और गुस्सा</h4><p>छोटी-छोटी बात पर गुस्सा, mood swings और रोना</p></div>
       </div>
-
       <div class="pain-card">
-        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=200&h=200&fit=crop" alt="बार-बार बीमार" class="pain-card-img"
-             onerror="this.style.display='none'">
-        <div class="pain-card-text">
-          <h4>🤒 बार-बार बीमार पड़ना</h4>
-          <p>कमजोर immunity की वजह से हर मौसम में सर्दी-जुकाम</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=200&h=200&fit=crop" alt="" class="pain-card-img" onerror="this.style.display='none'">
+        <div class="pain-card-text"><h4>🤒 बार-बार बीमार पड़ना</h4><p>कमजोर immunity की वजह से हर मौसम में सर्दी-जुकाम</p></div>
       </div>
-
     </div>
   </section>
 
-  <!-- ══════════════ CAUSES ══════════════ -->
-  <section class="cause-section">
+  <!-- CAUSES -->
+  <section class="cause-section dark-sec">
     <span class="section-tag">🔍 असली कारण क्या है?</span>
     <h2 class="section-title">आपके बच्चे की नींद <span>क्यों नहीं आती?</span></h2>
     <p class="section-sub">इन 4 कारणों को समझना जरूरी है</p>
-
     <div class="cause-grid">
-      <div class="cause-card">
-        <img src="https://images.unsplash.com/photo-1596558450268-9c27524ba856?w=300&h=200&fit=crop" alt="Mobile Screen" onerror="this.style.height='0'">
-        <p>📱 Mobile / Screen Exposure</p>
-      </div>
-      <div class="cause-card">
-        <img src="https://images.unsplash.com/photo-1502101872923-d48509bff386?w=300&h=200&fit=crop" alt="Overactive Mind" onerror="this.style.height='0'">
-        <p>🧠 दिमाग का Overactive होना</p>
-      </div>
-      <div class="cause-card">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=200&fit=crop" alt="Hormone Imbalance" onerror="this.style.height='0'">
-        <p>⚗️ Sleep Hormone Imbalance</p>
-      </div>
-      <div class="cause-card">
-        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=200&fit=crop" alt="Wrong Routine" onerror="this.style.height='0'">
-        <p>📅 गलत Routine</p>
-      </div>
+      <div class="cause-card"><img src="https://images.unsplash.com/photo-1596558450268-9c27524ba856?w=300&h=200&fit=crop" alt="" onerror="this.style.height='0'"><p>📱 Mobile / Screen Exposure</p></div>
+      <div class="cause-card"><img src="https://images.unsplash.com/photo-1502101872923-d48509bff386?w=300&h=200&fit=crop" alt="" onerror="this.style.height='0'"><p>🧠 दिमाग का Overactive होना</p></div>
+      <div class="cause-card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=200&fit=crop" alt="" onerror="this.style.height='0'"><p>⚗️ Sleep Hormone Imbalance</p></div>
+      <div class="cause-card"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=200&fit=crop" alt="" onerror="this.style.height='0'"><p>📅 गलत Routine</p></div>
     </div>
   </section>
 
-  <!-- ══════════════ CONSEQUENCES ══════════════ -->
+  <!-- CONSEQUENCE -->
   <section class="consequence-section">
     <div class="consequence-strip">
       <h3>⚠️ अगर अभी ध्यान नहीं दिया तो…</h3>
-
       <div class="cons-item">
-        <img src="https://images.unsplash.com/photo-1453847668862-487637052f8a?w=200&h=200&fit=crop" alt="Brain Growth" onerror="this.style.display='none'">
-        <div class="cons-item-text">
-          <strong>दिमाग की Growth पर असर</strong>
-          <span>नींद में ही brain development होती है — नींद नहीं तो growth रुकती है</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1453847668862-487637052f8a?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'">
+        <div class="cons-item-text"><strong>दिमाग की Growth पर असर</strong><span>नींद में ही brain development होती है — नींद नहीं तो growth रुकती है</span></div>
       </div>
-
       <div class="cons-item">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=200&fit=crop" alt="Weak Immunity" onerror="this.style.display='none'">
-        <div class="cons-item-text">
-          <strong>कमजोर Immunity</strong>
-          <span>बच्चा हमेशा बीमार रहेगा, शरीर fight नहीं कर पाएगा</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'">
+        <div class="cons-item-text"><strong>कमजोर Immunity</strong><span>बच्चा हमेशा बीमार रहेगा, शरीर fight नहीं कर पाएगा</span></div>
       </div>
-
       <div class="cons-item">
-        <img src="https://images.unsplash.com/photo-1631651364469-e3e8d91bf3cf?w=200&h=200&fit=crop" alt="Future Health" onerror="this.style.display='none'">
-        <div class="cons-item-text">
-          <strong>Future Health Issues</strong>
-          <span>बचपन की नींद की कमी बड़े होने पर serious problems बनती है</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1631651364469-e3e8d91bf3cf?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'">
+        <div class="cons-item-text"><strong>Future Health Issues</strong><span>बचपन की नींद की कमी बड़े होने पर serious problems बनती है</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ PRODUCT INTRO ══════════════ -->
+  <!-- PRODUCT INTRO -->
   <section class="product-intro">
     <span class="section-tag">✨ समाधान आ गया है!</span>
     <h2 class="section-title">अब बच्चों की नींद सुधारना हुआ <span>आसान</span></h2>
-    <p class="section-sub">Natural & Clinically Tested Solution — specially बच्चों के लिए</p>
-
+    <p class="section-sub">Natural &amp; Clinically Tested Solution — specially बच्चों के लिए</p>
     <div class="product-hero-row">
-      <img src="./Image/3.avif" alt="SlimKid" class="product-hero-img"
-           onerror="this.style.display='none'">
+      <img src="./Image/product.png" alt="SlimKid" class="product-hero-img" onerror="this.style.display='none'">
       <div class="product-hero-text">
         <h2>SlimKid</h2>
-        <p>Specially बच्चों के लिए बनाया गया safe & gentle formula जो बिना habit बनाए काम करता है</p>
+        <p>Specially बच्चों के लिए बनाया गया safe &amp; gentle formula जो बिना habit बनाए काम करता है</p>
         <div class="product-badges">
           <span class="badge">✅ Safe</span>
           <span class="badge">🌿 Natural</span>
@@ -1282,440 +780,240 @@
     </div>
   </section>
 
-  <!-- ══════════════ HOW IT WORKS ══════════════ -->
+  <!-- HOW IT WORKS -->
   <section class="how-section">
     <span class="section-tag">⚙️ यह Solution काम कैसे करता है?</span>
     <h2 class="section-title">3 Level पर करता है <span>काम</span></h2>
     <p class="section-sub">Result: बच्चा खुद समय पर सोने लगता है</p>
-
     <div class="steps-list">
-
       <div class="step-item">
         <div class="step-num">1</div>
         <div class="step-body">
           <h4>🧠 दिमाग को Calm करता है</h4>
           <p>Overactive brain को शांत करके stress hormones कम करता है</p>
-          <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=200&fit=crop" alt="Brain Calm" class="step-img" onerror="this.style.display='none'">
+          <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=200&fit=crop" alt="" class="step-img" onerror="this.style.display='none'">
         </div>
       </div>
-
       <div class="step-item">
         <div class="step-num">2</div>
         <div class="step-body">
           <h4>🌙 Sleep Cycle Reset करता है</h4>
           <p>Natural sleep hormone को balance करके body clock set करता है</p>
-          <img src="https://images.unsplash.com/photo-1506815444479-bfdb1e96c566?w=400&h=200&fit=crop" alt="Sleep Cycle" class="step-img" onerror="this.style.display='none'">
+          <img src="https://images.unsplash.com/photo-1506815444479-bfdb1e96c566?w=400&h=200&fit=crop" alt="" class="step-img" onerror="this.style.display='none'">
         </div>
       </div>
-
       <div class="step-item">
         <div class="step-num">3</div>
         <div class="step-body">
           <h4>😌 Deep Sleep लाता है</h4>
           <p>Body को relax करके quality deep sleep ensure करता है</p>
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=200&fit=crop" alt="Deep Sleep" class="step-img" onerror="this.style.display='none'">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=200&fit=crop" alt="" class="step-img" onerror="this.style.display='none'">
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ══════════════ BEFORE / AFTER ══════════════ -->
-  <section class="ba-section">
-    <span class="section-tag">📸 Before & After</span>
+  <!-- BEFORE / AFTER -->
+  <section class="ba-section dark-sec">
+    <span class="section-tag">📸 Before &amp; After</span>
     <h2 class="section-title">SlimKid से पहले <span>और बाद</span></h2>
     <p class="section-sub">देखिए कैसे बदल जाती है बच्चे की ज़िंदगी</p>
 
     <div class="ba-card">
       <div class="ba-images">
-        <div class="ba-side">
-          <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=300&h=200&fit=crop" alt="Before Sleep" onerror="this.style.display='none'">
-          <div class="ba-label">❌ Before</div>
-        </div>
-        <div class="ba-side">
-          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=300&h=200&fit=crop" alt="After Sleep" onerror="this.style.display='none'">
-          <div class="ba-label">✅ After</div>
-        </div>
+        <div class="ba-side"><img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=300&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ba-label">❌ Before</div></div>
+        <div class="ba-side"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=300&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ba-label">✅ After</div></div>
       </div>
-      <div class="ba-desc">
-        <h4>😴 नींद की Quality</h4>
-        <p>पहले रात भर करवटें, अब गहरी नींद में सो जाता है समय पर</p>
-      </div>
+      <div class="ba-desc"><h4>😴 नींद की Quality</h4><p>पहले रात भर करवटें, अब गहरी नींद में सो जाता है समय पर</p></div>
     </div>
 
     <div class="ba-card">
       <div class="ba-images">
-        <div class="ba-side">
-          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300&h=200&fit=crop" alt="Before Mood" onerror="this.style.display='none'">
-          <div class="ba-label">❌ Before</div>
-        </div>
-        <div class="ba-side">
-          <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=300&h=200&fit=crop" alt="After Mood" onerror="this.style.display='none'">
-          <div class="ba-label">✅ After</div>
-        </div>
+        <div class="ba-side"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ba-label">❌ Before</div></div>
+        <div class="ba-side"><img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=300&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ba-label">✅ After</div></div>
       </div>
-      <div class="ba-desc">
-        <h4>😊 Mood & Energy</h4>
-        <p>चिड़चिड़ापन खत्म, सुबह fresh और energetic उठता है</p>
-      </div>
+      <div class="ba-desc"><h4>😊 Mood &amp; Energy</h4><p>चिड़चिड़ापन खत्म, सुबह fresh और energetic उठता है</p></div>
     </div>
 
     <div class="ba-card">
       <div class="ba-images">
-        <div class="ba-side">
-          <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=300&h=200&fit=crop" alt="Before Study" onerror="this.style.display='none'">
-          <div class="ba-label">❌ Before</div>
-        </div>
-        <div class="ba-side">
-          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=300&h=200&fit=crop" alt="After Study" onerror="this.style.display='none'">
-          <div class="ba-label">✅ After</div>
-        </div>
+        <div class="ba-side"><img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=300&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ba-label">❌ Before</div></div>
+        <div class="ba-side"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=300&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ba-label">✅ After</div></div>
       </div>
-      <div class="ba-desc">
-        <h4>📚 पढ़ाई में Concentration</h4>
-        <p>अब स्कूल में ध्यान लगता है, grades भी improve हो रहे हैं</p>
-      </div>
+      <div class="ba-desc"><h4>📚 पढ़ाई में Concentration</h4><p>अब स्कूल में ध्यान लगता है, grades भी improve हो रहे हैं</p></div>
     </div>
-
   </section>
 
-  <!-- ══════════════ INGREDIENTS ══════════════ -->
+  <!-- INGREDIENTS -->
   <section class="ingredients-section">
     <span class="section-tag">🌿 Key Ingredients</span>
     <h2 class="section-title">100% Natural <span>Ayurvedic Ingredients</span></h2>
     <p class="section-sub">सदियों से trusted, आज scientifically proven</p>
-
     <div class="ing-scroll">
-
-      <div class="ing-card">
-        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=200&h=200&fit=crop" alt="अश्वगंधा" onerror="this.style.display='none'">
-        <div class="ing-text">
-          <h4>🌱 अश्वगंधा</h4>
-          <p>दिमाग को शांत करता है, stress और anxiety कम करता है</p>
-        </div>
-      </div>
-
-      <div class="ing-card">
-        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=200&h=200&fit=crop" alt="ब्राह्मी" onerror="this.style.display='none'">
-        <div class="ing-text">
-          <h4>🍃 ब्राह्मी</h4>
-          <p>Memory strong करती है और relaxation में help करती है</p>
-        </div>
-      </div>
-
-      <div class="ing-card">
-        <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=200&h=200&fit=crop" alt="जटामांसी" onerror="this.style.display='none'">
-        <div class="ing-text">
-          <h4>🌾 जटामांसी</h4>
-          <p>Natural sleep support करता है, sedative जैसा gentle effect</p>
-        </div>
-      </div>
-
-      <div class="ing-card">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop" alt="शंखपुष्पी" onerror="this.style.display='none'">
-        <div class="ing-text">
-          <h4>🌸 शंखपुष्पी</h4>
-          <p>Stress और tension कम करता है, mind को peace देता है</p>
-        </div>
-      </div>
-
+      <div class="ing-card"><img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ing-text"><h4>🌱 अश्वगंधा</h4><p>दिमाग को शांत करता है, stress और anxiety कम करता है</p></div></div>
+      <div class="ing-card"><img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ing-text"><h4>🍃 ब्राह्मी</h4><p>Memory strong करती है और relaxation में help करती है</p></div></div>
+      <div class="ing-card"><img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ing-text"><h4>🌾 जटामांसी</h4><p>Natural sleep support करता है, sedative जैसा gentle effect</p></div></div>
+      <div class="ing-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="ing-text"><h4>🌸 शंखपुष्पी</h4><p>Stress और tension कम करता है, mind को peace देता है</p></div></div>
     </div>
   </section>
 
-  <!-- ══════════════ DOCTORS ══════════════ -->
-  <section class="doc-section">
+  <!-- DOCTORS -->
+  <section class="doc-section dark-sec">
     <span class="section-tag">👨‍⚕️ Expert की राय</span>
     <h2 class="section-title">Experts क्या <span>कहते हैं?</span></h2>
     <p class="section-sub">Ayurvedic principles पर based, clinically tested solution</p>
-
     <div class="doc-points">
-      <div class="doc-point">
-        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop" alt="Doctor 1" onerror="this.style.display='none'">
-        <div class="doc-point-text">
-          <h4>Lifestyle Imbalance है असली कारण</h4>
-          <p>बच्चों की नींद की समस्या का कारण lifestyle imbalance है — Natural support सबसे effective तरीका है</p>
-        </div>
-      </div>
-
-      <div class="doc-point">
-        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop" alt="Doctor 2" onerror="this.style.display='none'">
-        <div class="doc-point-text">
-          <h4>Natural Correction सबसे Safe</h4>
-          <p>Ayurvedic ingredients बच्चों के लिए perfectly safe हैं और side effects नहीं होते</p>
-        </div>
-      </div>
+      <div class="doc-point"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="doc-point-text"><h4>Lifestyle Imbalance है असली कारण</h4><p>बच्चों की नींद की समस्या का कारण lifestyle imbalance है — Natural support सबसे effective तरीका है</p></div></div>
+      <div class="doc-point"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="doc-point-text"><h4>Natural Correction सबसे Safe</h4><p>Ayurvedic ingredients बच्चों के लिए perfectly safe हैं और side effects नहीं होते</p></div></div>
     </div>
   </section>
 
-  <!-- ══════════════ REVIEWS ══════════════ -->
+  <!-- REVIEWS -->
   <section class="reviews-section">
     <span class="section-tag">⭐ Real Customer Results</span>
     <h2 class="section-title">Parents का <span>Real Experience</span></h2>
     <p class="section-sub">हजारों बच्चों की नींद बदल चुकी है</p>
-
     <div class="review-cards">
-
       <div class="review-card">
-        <div class="review-top">
-          <img src="https://images.unsplash.com/photo-1546961342-ea5f62d5a27b?w=200&h=200&fit=crop" alt="Priya" class="review-avatar" onerror="this.style.display='none'">
-          <div class="review-meta">
-            <h4>Priya Sharma, Delhi</h4>
-            <span>Verified Buyer ✅</span>
-          </div>
-        </div>
+        <div class="review-top"><img src="https://images.unsplash.com/photo-1546961342-ea5f62d5a27b?w=200&h=200&fit=crop" alt="" class="review-avatar" onerror="this.style.display='none'"><div class="review-meta"><h4>Priya Sharma, Delhi</h4><span>Verified Buyer ✅</span></div></div>
         <div class="stars">★★★★★</div>
         <p class="review-text">मेरे बच्चे को 10 दिन में फर्क दिखने लगा, अब खुद समय पर सो जाता है। पहले रात 1-2 बजे तक जागता था!</p>
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&h=180&fit=crop" alt="Happy Child" class="review-result-img" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&h=180&fit=crop" alt="" class="review-result-img" onerror="this.style.display='none'">
       </div>
-
       <div class="review-card">
-        <div class="review-top">
-          <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=200&h=200&fit=crop" alt="Rahul" class="review-avatar" onerror="this.style.display='none'">
-          <div class="review-meta">
-            <h4>Rahul Gupta, Jaipur</h4>
-            <span>Verified Buyer ✅</span>
-          </div>
-        </div>
+        <div class="review-top"><img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=200&h=200&fit=crop" alt="" class="review-avatar" onerror="this.style.display='none'"><div class="review-meta"><h4>Rahul Gupta, Jaipur</h4><span>Verified Buyer ✅</span></div></div>
         <div class="stars">★★★★★</div>
         <p class="review-text">पहले रात भर जागता था, अब deep sleep लेने लगा है। सुबह खुद उठता है खुश होकर। बहुत बढ़िया product!</p>
-        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=180&fit=crop" alt="Child Sleeping" class="review-result-img" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=180&fit=crop" alt="" class="review-result-img" onerror="this.style.display='none'">
       </div>
-
       <div class="review-card">
-        <div class="review-top">
-          <img src="https://images.unsplash.com/photo-1502033026808-76ed6e670c69?w=200&h=200&fit=crop" alt="Sunita" class="review-avatar" onerror="this.style.display='none'">
-          <div class="review-meta">
-            <h4>Sunita Verma, Mumbai</h4>
-            <span>Verified Buyer ✅</span>
-          </div>
-        </div>
+        <div class="review-top"><img src="https://images.unsplash.com/photo-1502033026808-76ed6e670c69?w=200&h=200&fit=crop" alt="" class="review-avatar" onerror="this.style.display='none'"><div class="review-meta"><h4>Sunita Verma, Mumbai</h4><span>Verified Buyer ✅</span></div></div>
         <div class="stars">★★★★★</div>
         <p class="review-text">स्कूल में ध्यान भी improve हुआ है, teacher ने खुद notice किया। Teacher ने कहा बच्चा अब बहुत attentive है।</p>
-        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=180&fit=crop" alt="Child Studying" class="review-result-img" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=180&fit=crop" alt="" class="review-result-img" onerror="this.style.display='none'">
       </div>
-
     </div>
   </section>
 
-  <!-- ══════════════ HOW TO USE ══════════════ -->
+  <!-- HOW TO USE -->
   <section class="use-section">
     <span class="section-tag">🕒 Use कैसे करें?</span>
     <h2 class="section-title">बस <span>3 Simple Steps</span></h2>
     <p class="section-sub">7–14 दिन में improvement दिखना शुरू हो जाता है</p>
-
     <div class="use-steps">
-
-      <div class="use-step">
-        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=200&fit=crop" alt="Step 1" onerror="this.style.display='none'">
-        <div class="use-step-text">
-          <h4>🌙 रात को सोने से पहले</h4>
-          <p>हर रात सोने से 30 मिनट पहले SlimKid दें</p>
-        </div>
-      </div>
-
-      <div class="use-step">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=200&fit=crop" alt="Step 2" onerror="this.style.display='none'">
-        <div class="use-step-text">
-          <h4>📋 Dosage Follow करें</h4>
-          <p>Guide के अनुसार सही dosage follow करें — age के हिसाब से</p>
-        </div>
-      </div>
-
-      <div class="use-step">
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=200&h=200&fit=crop" alt="Step 3" onerror="this.style.display='none'">
-        <div class="use-step-text">
-          <h4>✅ 7-14 दिन में Result</h4>
-          <p>Regular use से 7-14 दिन में improvement दिखने लगती है</p>
-        </div>
-      </div>
-
+      <div class="use-step"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="use-step-text"><h4>🌙 रात को सोने से पहले</h4><p>हर रात सोने से 30 मिनट पहले SlimKid दें</p></div></div>
+      <div class="use-step"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="use-step-text"><h4>📋 Dosage Follow करें</h4><p>Guide के अनुसार सही dosage follow करें — age के हिसाब से</p></div></div>
+      <div class="use-step"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="use-step-text"><h4>✅ 7-14 दिन में Result</h4><p>Regular use से 7-14 दिन में improvement दिखने लगती है</p></div></div>
     </div>
   </section>
 
-  <!-- ══════════════ OFFER ══════════════ -->
-  <section class="offer-section">
-    <span class="section-tag" style="background:rgba(255,224,130,0.2);color:#ffe082;">🎁 Special Offer</span>
+  <!-- OFFER -->
+  <section class="offer-section dark-sec">
+    <span class="section-tag">🎁 Special Offer</span>
     <h2 class="section-title" style="font-size:25px;">आज Order पर <span>यह सब FREE!</span></h2>
-
     <div class="offer-cards">
-
-      <div class="offer-item">
-        <img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=200&h=200&fit=crop" alt="Free Delivery" onerror="this.style.display='none'">
-        <div class="offer-item-text">
-          <h4>🚚 FREE Delivery</h4>
-          <p>पूरे भारत में बिल्कुल मुफ्त डिलीवरी — कोई shipping charge नहीं</p>
-        </div>
-      </div>
-
-      <div class="offer-item">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&h=200&fit=crop" alt="Diet Chart" onerror="this.style.display='none'">
-        <div class="offer-item-text">
-          <h4>📋 FREE Diet Chart</h4>
-          <p>बच्चे की नींद और health के लिए expert diet guide बिल्कुल मुफ्त</p>
-        </div>
-      </div>
-
-      <div class="offer-item">
-        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&h=200&fit=crop" alt="10% Discount" onerror="this.style.display='none'">
-        <div class="offer-item-text">
-          <h4>💰 10% Extra Discount</h4>
-          <p>आज order करने पर 10% special discount + COD available</p>
-        </div>
-      </div>
-
+      <div class="offer-item"><img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="offer-item-text"><h4>🚚 FREE Delivery</h4><p>पूरे भारत में बिल्कुल मुफ्त डिलीवरी — कोई shipping charge नहीं</p></div></div>
+      <div class="offer-item"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="offer-item-text"><h4>📋 FREE Diet Chart</h4><p>बच्चे की नींद और health के लिए expert diet guide बिल्कुल मुफ्त</p></div></div>
+      <div class="offer-item"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&h=200&fit=crop" alt="" onerror="this.style.display='none'"><div class="offer-item-text"><h4>💰 10% Extra Discount</h4><p>आज order करने पर 10% special discount + COD available</p></div></div>
     </div>
-
     <div class="price-box">
       <div class="price-old">MRP: ₹1,299</div>
       <div class="price-new">₹1,169</div>
       <div class="price-save">आप बचा रहे हैं ₹130 🎉</div>
     </div>
-
     <a href="#order" class="cta-btn">👉 अभी Order करें — Free Delivery + 10% OFF</a>
     <p class="cta-note">⚡ Limited Stock! Delay करने से problem और बढ़ सकती है</p>
   </section>
 
-  <!-- ══════════════ TRUST BADGES ══════════════ -->
+  <!-- TRUST -->
   <section class="trust-section">
-    <span class="section-tag">🛡️ Certified & Trusted</span>
-    <h2 class="section-title" style="margin-bottom:18px;">100% <span>Safe & Trusted</span></h2>
-
+    <span class="section-tag">🛡️ Certified &amp; Trusted</span>
+    <h2 class="section-title" style="margin-bottom:18px;">100% <span>Safe &amp; Trusted</span></h2>
     <div class="trust-grid">
-      <div class="trust-item">
-        <span class="trust-icon">🔬</span>
-        <h4>Lab Tested</h4>
-        <p>Certified laboratory में quality test किया गया</p>
-      </div>
-      <div class="trust-item">
-        <span class="trust-icon">✅</span>
-        <h4>Quality Checked</h4>
-        <p>Strict quality standards पर खरा उतरा</p>
-      </div>
-      <div class="trust-item">
-        <span class="trust-icon">👶</span>
-        <h4>Kids Safe</h4>
-        <p>Specially बच्चों के लिए safe formula</p>
-      </div>
-      <div class="trust-item">
-        <span class="trust-icon">👨‍👩‍👧</span>
-        <h4>Parents Trusted</h4>
-        <p>हजारों parents की पहली choice</p>
-      </div>
+      <div class="trust-item"><span class="trust-icon">🔬</span><h4>Lab Tested</h4><p>Certified laboratory में quality test किया गया</p></div>
+      <div class="trust-item"><span class="trust-icon">✅</span><h4>Quality Checked</h4><p>Strict quality standards पर खरा उतरा</p></div>
+      <div class="trust-item"><span class="trust-icon">👶</span><h4>Kids Safe</h4><p>Specially बच्चों के लिए safe formula</p></div>
+      <div class="trust-item"><span class="trust-icon">👨‍👩‍👧</span><h4>Parents Trusted</h4><p>हजारों parents की पहली choice</p></div>
     </div>
   </section>
 
-  <!-- ══════════════ FAQ ══════════════ -->
+  <!-- FAQ -->
   <section class="faq-section" id="faq">
     <span class="section-tag">❓ Frequently Asked Questions</span>
     <h2 class="section-title" style="margin-bottom:20px;">आपके <span>सवालों के जवाब</span></h2>
-
-    <div class="faq-item">
-      <div class="faq-q">क्या यह safe है बच्चों के लिए? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">हाँ, यह specially बच्चों के लिए बनाया गया है। 100% natural Ayurvedic ingredients से बना है जो centuries से safe माने जाते हैं।</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">कितने दिन में असर दिखेगा? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">7–14 दिनों में improvement दिखती है। Regular use से बच्चा खुद समय पर सोने लगता है।</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">क्या इससे आदत लग जाती है? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">नहीं, यह natural है और habit forming नहीं है। यह body के natural sleep cycle को reset करता है।</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">क्या हर उम्र के बच्चे use कर सकते हैं? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">Yes, लेकिन recommended age guidelines follow करें। Product के साथ दी गई guide में age-wise dosage clearly mention है।</div>
-    </div>
-
+    <div class="faq-item"><div class="faq-q">क्या यह safe है बच्चों के लिए? <span class="faq-arrow">▼</span></div><div class="faq-a">हाँ, यह specially बच्चों के लिए बनाया गया है। 100% natural Ayurvedic ingredients से बना है जो centuries से safe माने जाते हैं।</div></div>
+    <div class="faq-item"><div class="faq-q">कितने दिन में असर दिखेगा? <span class="faq-arrow">▼</span></div><div class="faq-a">7–14 दिनों में improvement दिखती है। Regular use से बच्चा खुद समय पर सोने लगता है।</div></div>
+    <div class="faq-item"><div class="faq-q">क्या इससे आदत लग जाती है? <span class="faq-arrow">▼</span></div><div class="faq-a">नहीं, यह natural है और habit forming नहीं है। यह body के natural sleep cycle को reset करता है।</div></div>
+    <div class="faq-item"><div class="faq-q">क्या हर उम्र के बच्चे use कर सकते हैं? <span class="faq-arrow">▼</span></div><div class="faq-a">Yes, लेकिन recommended age guidelines follow करें। Product के साथ दी गई guide में age-wise dosage clearly mention है।</div></div>
   </section>
 
-  <!-- ══════════════ ORDER FORM ══════════════ -->
+  <!-- ORDER FORM -->
   <section class="order-section" id="order">
-    <span class="section-tag" style="background:rgba(255,224,130,0.2);color:#ffe082;">📦 Order करें</span>
+    <span class="section-tag">📦 Order करें</span>
     <h2 class="section-title">अभी Order करें और <span>बच्चे की नींद सुधारें</span></h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.75);">Delay करने से problem और बढ़ सकती है — Limited Stock!</p>
-
+    <p class="section-sub" style="color:rgba(255,255,255,.72);">Delay करने से problem और बढ़ सकती है — Limited Stock!</p>
     <div class="order-form" id="orderForm">
-
       <div class="cod-badge">
         <span>💵</span>
-        <p>Cash on Delivery Available<br><small style="font-weight:400;opacity:0.8;">पहले देखें, फिर पैसे दें</small></p>
+        <p>Cash on Delivery Available<br><small style="font-weight:400;opacity:.8;">पहले देखें, फिर पैसे दें</small></p>
       </div>
-
       <div class="form-group">
         <label>👤 आपका नाम</label>
         <input type="text" id="userName" placeholder="अपना पूरा नाम लिखें…" autocomplete="name">
       </div>
-
       <div class="form-group">
         <label>📱 Phone Number</label>
         <input type="tel" id="userPhone" placeholder="अपना WhatsApp number लिखें…" maxlength="10" autocomplete="tel">
       </div>
-
-      <button class="submit-btn" onclick="submitOrder()">
-        🛒 अभी Order Place करें — FREE Delivery
-      </button>
-
+      <button class="submit-btn" onclick="submitOrder()">🛒 अभी Order Place करें — FREE Delivery</button>
     </div>
-
     <div class="success-msg" id="successMsg">
       <h3>✅ Order Successfully Place हुआ!</h3>
       <p>हमारी team जल्द ही आपसे WhatsApp पर contact करेगी।<br><br>🚚 Free Delivery | 💵 Cash on Delivery | 📋 Free Diet Chart</p>
     </div>
   </section>
 
-  <!-- ══════════════ DISCLAIMER ══════════════ -->
+  <!-- DISCLAIMER -->
   <section class="disclaimer-section">
     <h4>⚠️ Disclaimer</h4>
     <p>यह product disease का इलाज नहीं बल्कि support solution है। Results व्यक्ति अनुसार अलग हो सकते हैं। Use under proper guidance. यह product किसी भी medical condition का substitute नहीं है। किसी भी health concern के लिए अपने doctor से consult करें।</p>
   </section>
 
-</div><!-- end page-wrap -->
+</div>
 
-<!-- ══════════════ STICKY CTA ══════════════ -->
+<!-- STICKY CTA -->
 <div class="sticky-cta">
   <div class="sticky-cta-text">
     <p>Free Delivery + Free Diet Chart</p>
     <strong>SlimKid — अभी 10% OFF</strong>
   </div>
-  <button class="sticky-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
-    Order करें 👉
-  </button>
+  <button class="sticky-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order करें 👉</button>
 </div>
 
 <script>
-  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
-      const isOpen = item.classList.contains('open');
+      const open = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      if (!open) item.classList.add('open');
     });
   });
 
-  // Order form submission
   function submitOrder() {
-    const name = document.getElementById('userName').value.trim();
+    const name  = document.getElementById('userName').value.trim();
     const phone = document.getElementById('userPhone').value.trim();
-
-    if (!name) { alert('कृपया अपना नाम लिखें'); return; }
+    if (!name)                   { alert('कृपया अपना नाम लिखें'); return; }
     if (!phone || phone.length < 10) { alert('कृपया सही phone number लिखें'); return; }
-
-    const overlay = document.getElementById('loadingOverlay');
-    overlay.classList.add('show');
-
+    document.getElementById('loadingOverlay').classList.add('show');
     setTimeout(() => {
-      overlay.classList.remove('show');
+      document.getElementById('loadingOverlay').classList.remove('show');
       document.getElementById('orderForm').style.display = 'none';
       document.getElementById('successMsg').classList.add('show');
-      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('order').scrollIntoView({ behavior:'smooth' });
     }, 2200);
   }
 
-  // Phone input — numbers only
   document.getElementById('userPhone').addEventListener('input', function() {
     this.value = this.value.replace(/\D/g, '');
   });
